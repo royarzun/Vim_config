@@ -346,7 +346,8 @@ command! -nargs=+ CC :py print <args>
 
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
-    let s:color_squeme = "inkpot"
+    let s:color_squeme = "solarized"
+    set background=dark
 elseif $TERM =~ 'rxvt' || $TERM =~ '256color'
     set t_Co=256
     let s:color_squeme = "darkglass"
