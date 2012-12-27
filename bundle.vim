@@ -35,6 +35,7 @@ NeoBundle 'Rip-Rip/clang_complete'
 " Python
 NeoBundle 'vim-scripts/python_match.vim'
 NeoBundle 'vim-scripts/indentpython.vim'
+NeoBundle 'vim-scripts/vim-flake8'
 
 " Markup languages
 NeoBundle 'smancill/hammer.vim'
