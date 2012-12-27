@@ -57,3 +57,6 @@ NeoBundle 'smancill/send_evernote.vim'
 
 " Jade
 NeoBundle 'digitaltoad/vim-jade'
+
+" Coffee script
+NeoBundle 'vim-scripts/vim-coffee-script'
