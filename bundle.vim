@@ -60,3 +60,6 @@ NeoBundle 'digitaltoad/vim-jade'
 
 " Coffee script
 NeoBundle 'vim-scripts/vim-coffee-script'
+
+" Less (css)
+NeoBundle 'groenewege/vim-less'
