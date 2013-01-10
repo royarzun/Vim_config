@@ -146,6 +146,9 @@ let g:buffergator_split_size=12
 " Gist                                      {{{2
 let g:gist_clip_command = 'xclip -selection clipboard'
 
+" netrw                                     {{{2
+let g:netrw_list_hide = '^\.,\~$,^tags$'
+
 " NERDTree                                  {{{2
 nnoremap <silent>  <F3>              :NERDTreeToggle<CR>
 let NERDTreeIgnore=[
@@ -175,10 +178,9 @@ set synmaxcol=128                           " Prevent lag with long lines
 
 set autoread                                " Read files if changed outside
 set nobackup                                " Do not use backups (Git FTW)
-set directory=./.swp,~/.vim/.files,/tmp     " Change path to swap files
-set backupdir=./.bak,~/.vim/.files,/tmp     " Change path to backup files
-set fenc=utf-8                              " Default file encoding
-set ff=unix                                 " Default end of line
+set fileencoding=utf-8                      " Default file encoding
+set fileformats=unix,dos,mac                " Support all EOLs by default
+set fileformat=unix                         " Default end of line
 
 set mouse=a                                 " Use mouse in all modes
 set backspace=indent,eol,start              " Backspace works in Insert mode
@@ -192,7 +194,7 @@ set showmode                                " Always show the mode
 set showcmd                                 " Always show the command
 set ruler                                   " Show position of the cursor
 set laststatus=2                            " Always show statusline
-set shortmess=a                             " Abbreviate status messages
+set shortmess=aI                            " Abbreviate status messages
 set rulerformat=%25(%LL\ \ \ %l,%c%V%=%P%)  " Ruler string
 
 set wildmenu                                " Better command-line completion
@@ -210,16 +212,17 @@ set shiftwidth=4                            " Default indent of four spaces
 set formatoptions=tq2                       " Set format options
 set autoindent                              " Indent new lines using previous
 set wrap                                    " Softwrap long lines
+set display+=lastline                       " If wrap set, display last line
 set number                                  " Show line numbers
 set virtualedit=block                       " Move freely in visual block
 set linebreak                               " Wrap at spaces characters
-let &showbreak='» '                         " Mark continuation of long lines
 set nojoinspaces                            " One space after sentences
 
 set incsearch                               " Search word while typing
 set ignorecase                              " Ignore case in search patterns
 set smartcase                               " But override if uppercase used
 
+set complete-=i                             " Ignore include files
 set completeopt=menu,preview,longest        " Completion menu options
 set pumheight=10                            " Size of completion menu
 
@@ -229,7 +232,30 @@ set spellfile=~/.vim/spell/mine.utf-8.add   " Spell file for additions
 
 set tags=./.tags,./tags                     " Use a dot tags file
 
-set listchars=tab:▸\ ,eol:¬                 " Better unprintable characters
+set viminfo^=!                              " Save uppercase variables
+
+" Better unprintable characters
+if &termencoding ==# 'utf-8' || &encoding ==# 'utf-8'
+  let &listchars="tab:\u25b8 ,trail:\u2423,nbsp:\u26ad,eol:\u00ac,extends:\u21c9,precedes:\u21c7"
+  let &fillchars="vert:\u259a,fold:\u00b7"
+  let &showbreak="\u00bb "
+endif
+
+" Where to put swap, backup and undo files
+if isdirectory(expand('~/.cache/vim'))
+  if &directory =~# '^\.,'
+    set directory^=~/.cache/vim/swap
+  endif
+  if &backupdir =~# '^\.,'
+    set backupdir^=~/.cache/vim/backup
+  endif
+  if exists('+undodir') && &undodir =~# '^\.\%(,\|$\)'
+    set undodir^=~/.cache/vim/undo
+  endif
+endif
+if exists('+undofile')
+  set undofile
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -254,6 +280,9 @@ nnoremap <silent>   K             <C-^>
 nnoremap            H             :bprevious<CR>
 nnoremap            L             :bnext<CR>
 
+" Make Y consistent with C and D.  See :help Y.
+nnoremap Y y$
+
 " Omnicompletion popup menu like IDE
 inoremap <expr>     <CR>          pumvisible() ? "\<C-y>" : "\<CR>"
 inoremap <expr>     <Down>        pumvisible() ? "\<C-n>" : "\<Down>"
@@ -271,13 +300,19 @@ nnoremap            <F1>          <nop>
 nnoremap            Q             <nop>
 
 " Write as sudo
-cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+cnoremap            w!!           w !sudo tee % >/dev/null
 
 " Better tags navigation
 nnoremap            <C-]>         g<C-]>
 vnoremap            <C-]>         g<C-]>
 nnoremap            g<C-]>        <C-]>
 vnoremap            g<C-]>        <C-]>
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<CR><C-L>
+endif
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " AUTOCOMMANDS                          {{{1
@@ -345,12 +380,12 @@ command! -nargs=+ CC :py print <args>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-    let s:color_squeme = "darkglass"
-    set background=dark
+  set t_Co=256
+  let s:color_squeme = "darkglass"
+  set background=dark
 elseif $TERM =~ 'rxvt' || $TERM =~ '256color'
-    set t_Co=256
-    let s:color_squeme = "darkglass"
+  set t_Co=256
+  let s:color_squeme = "darkglass"
 endif
 
 try
@@ -370,7 +405,7 @@ highlight PmenuSel ctermfg=black
 " PER USER CONFIGURATION                {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let s:user_vimrc = expand("~/.vim/vimrc_mine.vim")
+let s:user_vimrc = expand("~/.vim/local.vim")
 if filereadable(s:user_vimrc)
   exe "source " . s:user_vimrc
 endif

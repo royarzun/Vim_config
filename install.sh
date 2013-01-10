@@ -33,6 +33,9 @@ echo -e "\nInstalling plugins..."
 sleep 2
 vim +NeoBundleInstall! +qa!
 
+# Create directory for swap/backup/undo files
+mkdir -p ${HOME}/.cache/vim/{swap,backup,undo}
+
 # Spell files
 echo -e "\nGetting spell files..."
 sleep 1
