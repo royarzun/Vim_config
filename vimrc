@@ -162,6 +162,9 @@ let NERDTreeIgnore=[
                    \'\.rb[co]$[[file]]'
                    \]
 
+" Gundo                                     {{{2
+nnoremap <silent> <F5>               :GundoToggle<CR>
+
 " }}}
 
 
