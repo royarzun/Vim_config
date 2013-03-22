@@ -64,3 +64,6 @@ NeoBundle 'vim-scripts/vim-coffee-script'
 
 " Less (css)
 NeoBundle 'groenewege/vim-less'
+
+" Jslint
+NeoBundle 'hallettj/jslint.vim'
