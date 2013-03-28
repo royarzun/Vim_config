@@ -10,6 +10,7 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'sjl/clam.vim'
+NeoBundle 'vim-scripts/cr-bs-del-space-tab.vim'
 
 " Git and GitHub
 NeoBundle 'tpope/vim-fugitive'
