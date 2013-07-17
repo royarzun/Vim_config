@@ -1,11 +1,12 @@
-" git.vim: settings for Git buffers
+" puppet.vim: settings for Puppet manifests
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OPTIONS                               {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-setlocal nofoldenable                       " Disable automatic folds
-setlocal spell                              " Activate spell check
+setlocal commentstring=#%s
+setlocal tabstop=4
+setlocal shiftwidth=4
 
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

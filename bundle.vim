@@ -42,6 +42,7 @@ NeoBundle 'vim-scripts/vim-flake8'
 " Markup languages
 NeoBundle 'smancill/hammer.vim'
 NeoBundle 'hallison/vim-markdown'
+NeoBundle 'puppetlabs/puppet-syntax-vim'
 
 " Completion
 NeoBundle 'ervandew/supertab'
