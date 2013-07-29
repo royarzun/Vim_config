@@ -18,9 +18,6 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 
-" LaTeX
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-
 " Programming
 NeoBundle 'smancill/syntastic'
 NeoBundle 'sjl/gundo.vim'
