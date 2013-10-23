@@ -18,9 +18,6 @@ NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 
-" LaTeX
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-
 " Programming
 NeoBundle 'smancill/syntastic'
 NeoBundle 'sjl/gundo.vim'
@@ -42,6 +39,7 @@ NeoBundle 'vim-scripts/vim-flake8'
 " Markup languages
 NeoBundle 'smancill/hammer.vim'
 NeoBundle 'hallison/vim-markdown'
+NeoBundle 'puppetlabs/puppet-syntax-vim'
 
 " Completion
 NeoBundle 'ervandew/supertab'
@@ -69,4 +67,8 @@ NeoBundle 'groenewege/vim-less'
 " Jslint
 NeoBundle 'hallettj/jslint.vim'
 
+" autocompletition
 NeoBundle 'davidhalter/jedi-vim'
+
+" Ruby
+NeoBundle 'vim-ruby/vim-ruby'
