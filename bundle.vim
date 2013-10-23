@@ -68,3 +68,5 @@ NeoBundle 'groenewege/vim-less'
 
 " Jslint
 NeoBundle 'hallettj/jslint.vim'
+
+NeoBundle 'davidhalter/jedi-vim'
