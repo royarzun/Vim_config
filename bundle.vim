@@ -19,13 +19,12 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'mattn/webapi-vim'
 
 " Programming
-NeoBundle 'smancill/syntastic'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mutewinter/vim-indent-guides'
 
 " C/C++
 NeoBundle 'vim-scripts/a.vim'
@@ -37,7 +36,7 @@ NeoBundle 'vim-scripts/indentpython.vim'
 NeoBundle 'vim-scripts/vim-flake8'
 
 " Markup languages
-NeoBundle 'smancill/hammer.vim'
+NeoBundle 'matthias-guenther/hammer.vim'
 NeoBundle 'hallison/vim-markdown'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
 

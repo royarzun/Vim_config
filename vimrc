@@ -9,15 +9,23 @@ filetype off
 set nocompatible
 
 if has('vim_starting')
-set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#rc()
+  let s:neobundle_dir = expand("~/.vim/share/neobundle.vim")
+  if isdirectory(s:neobundle_dir. "/plugin")
+    exe "set runtimepath+=" . s:neobundle_dir
+    call neobundle#rc()
+  else
+    echomsg 'Plugin manager "neobundle" not found.'
+    echomsg 'Run "git submodule update --init" in your $VIMHOME directory.'
+    exit
+  endif
 endif
-
-" Required
-NeoBundle 'smancill/neobundle.vim'
 
 " Add your bundles in bundle.vim
 source ~/.vim/bundle.vim
+let s:user_bundle = expand("~/.vim/bundle.local")
+if filereadable(s:user_bundle)
+  exe "source " . s:user_bundle
+endif
 
 syntax on
 filetype plugin indent on
@@ -29,8 +37,10 @@ filetype plugin indent on
 " SuperTab                                  {{{2
 if has("gui_running")
   let g:SuperTabMappingForward = '<C-Space>'
+  let g:SuperTabMappingBackward = '<S-C-space>'
 else
   let g:SuperTabMappingForward = '<C-@>'
+  let g:SuperTabMappingBackward = '<C-S-@>'
 endif
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -102,11 +112,9 @@ let g:alternateExtensions_hpp = "cpp,cxx,C,cc"
 let g:alternateExtensions_hxx = "cpp,cxx,C,cc"
 
 " Clang Complete                            {{{2
-let g:clang_use_library=1
 let g:clang_auto_select=1
 let g:clang_snippets=1
-let g:clang_snippets_engine='imaps'
-let g:clang_conceal_snippets=1
+let g:clang_snippets_engine='ultisnips'
 let g:clang_complete_copen=0
 let g:clang_user_options="-DCLANG -fcxx-exceptions"
 
@@ -407,7 +415,7 @@ highlight PmenuSel ctermfg=black
 " PER USER CONFIGURATION                {{{1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-let s:user_vimrc = expand("~/.vim/local.vim")
+let s:user_vimrc = expand("~/.vim/vimrc.local")
 if filereadable(s:user_vimrc)
   exe "source " . s:user_vimrc
 endif
