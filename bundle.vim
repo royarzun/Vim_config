@@ -5,7 +5,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'mileszs/ack.vim'
 
 " General utilities
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'Lokaltog/powerline'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
