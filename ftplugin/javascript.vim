@@ -9,6 +9,9 @@ setlocal tabstop=2                          " Tabs use 2 spaces
 setlocal shiftwidth=2                       " Indent using 2 spaces
 setlocal formatoptions=tq2                  " Format text
 
+" Google closure linter
+let g:syntastic_javascript_checkers = ['gjslint']
+
 "}}}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim: foldmethod=marker
