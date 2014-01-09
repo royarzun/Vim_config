@@ -93,6 +93,7 @@ let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_config_file = '.clang_complete'
 let g:syntastic_c_config_file = '.clang_complete'
 let g:syntastic_javascript_checkers = ['gjslint']
+let g:syntastic_always_populate_loc_list = 1
 if v:version == 700
   let g:syntastic_enable_highlighting = 0
 endif
