@@ -68,3 +68,6 @@ NeoBundle 'davidhalter/jedi-vim'
 
 " Ruby
 NeoBundle 'vim-ruby/vim-ruby'
+
+" Handlebars javascript compiler
+NeoBundle 'mustache/vim-mustache-handlebars'
