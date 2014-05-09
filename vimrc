@@ -74,8 +74,8 @@ endif
 nnoremap <silent> <C-N>     :CtrlPMRU<CR>
 nnoremap <silent> g[        :CtrlPBufTag<CR>
 nnoremap <silent> g{        :CtrlPBufTagAll<CR>
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_by_filename = 1
+let g:ctrlp_working_path_mode = 'r'
+let g:ctrlp_by_filename = 0
 let g:ctrlp_mruf_max = 50
 let g:ctrlp_dotfiles = 1
 let g:ctrlp_open_new_file = 'r'
