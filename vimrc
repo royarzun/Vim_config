@@ -58,8 +58,12 @@ let g:UltiSnipsEditSplit='horizontal'
 let g:UltiSnipsSnippetDirectories = ["ulti-snippets"]
 let g:UltiSnipsDontReverseSearchPath = 1
 
-" Local vimrc                               {{{2
-let g:local_vimrc='.project.vim'
+" vim-addon-local-vimrc                     {{{2
+let g:local_vimrc = {
+        \ 'names': ['.project.vim'],
+        \ 'hash_fun': 'LVRHashOfFile',
+        \ 'cache_file': $HOME . '/.cache/vim_local_rc_cache',
+        \ }
 
 " Fugitive                                  {{{2
 nnoremap gs :Gstatus<CR>
@@ -86,6 +90,7 @@ let g:ctrlp_custom_ignore = {
 
 " Ack                                       {{{2
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ack_wildignore=0
 
 " Syntastic                                 {{{2
 let g:syntastic_mode_map = { 'passive_filetypes': ['java'] }
@@ -221,7 +226,6 @@ set expandtab                               " Use spaces instead of tabs
 set shiftround                              " Indent to multiple of shiftwidth
 set shiftwidth=4                            " Default indent of four spaces
 
-set formatoptions=tq2                       " Set format options
 set autoindent                              " Indent new lines using previous
 set wrap                                    " Softwrap long lines
 set display+=lastline                       " If wrap set, display last line

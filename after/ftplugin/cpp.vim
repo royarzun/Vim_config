@@ -1,13 +1,8 @@
 " cpp.vim: settings for C++ files
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" OPTIONS                               {{{1
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+setlocal commentstring=//%s
 
-setlocal tabstop=2                          " Tabs use 2 spaces
-setlocal shiftwidth=2                       " Indent using 2 spaces
-setlocal cinoptions+=g0                     " Indent C++ scope declarations
-
-"}}}
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim: foldmethod=marker
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal cinoptions+=g0

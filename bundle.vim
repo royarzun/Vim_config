@@ -1,3 +1,6 @@
+" Local vimrc
+NeoBundle 'MarcWeber/vim-addon-local-vimrc'
+
 " Browsing/searching files/buffers
 NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'kien/ctrlp.vim'
@@ -9,7 +12,6 @@ NeoBundle 'Lokaltog/powerline'
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'sjl/clam.vim'
 NeoBundle 'vim-scripts/cr-bs-del-space-tab.vim'
 
 " Git and GitHub
@@ -21,7 +23,6 @@ NeoBundle 'mattn/webapi-vim'
 " Programming
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'sjl/gundo.vim'
-NeoBundle 'SirVer/ultisnips'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'vim-scripts/matchit.zip'
 NeoBundle 'majutsushi/tagbar'
@@ -42,6 +43,8 @@ NeoBundle 'puppetlabs/puppet-syntax-vim'
 
 " Completion
 NeoBundle 'ervandew/supertab'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'smancill/vim-snippets'
 
 " Colorsquemes
 NeoBundle 'smancill/darkglass'
